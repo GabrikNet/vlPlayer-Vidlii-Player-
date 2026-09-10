@@ -62,7 +62,7 @@ function VLPlayer(e) {
                 id: v,
                 name: v
             };
-        swfobject.embedSWF("https://i.r.worldssl.net/vlPlayer/FlashPlayer19.swf", v, "100%", "100%", "9.0.0", !1, e, {
+        swfobject.embedSWF("FlashPlayer19.swf", v, "100%", "100%", "9.0.0", !1, e, {
             allowScriptAccess: "always",
             bgcolor: "000000",
             wmode: "opaque"
