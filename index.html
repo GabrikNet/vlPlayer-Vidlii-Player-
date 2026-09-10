@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>vlPlayer — local test</title>
+<style>
+  body { background: #141414; color: #eee; font-family: Arial, Helvetica, sans-serif; margin: 0; padding: 20px; text-align: center; }
+  h1 { font-size: 18px; margin: 0 0 4px; }
+  p.sub { color: #999; font-size: 13px; margin: 0 0 16px; }
+  #player { width: 640px; height: 360px; max-width: 100%; margin: 0 auto; background: #000; }
+  .note { color: #777; font-size: 12px; margin-top: 14px; line-height: 1.5; }
+  code { background: #222; padding: 1px 5px; border-radius: 3px; color: #8fd; }
+</style>
+<!--[if lt IE 9]>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+<![endif]-->
+</head>
+<body>
+
+  <h1>vlPlayer Test (VidLii)</h1>
+  <p class="sub">vlPlayer</p>
+
+  <div id="player"></div>
+
+  <p class="note">
+    Running via <code>file://</code>? The player loads the skin using <code>$.getScript</code>,
+    which browsers block for local files — use <code>node server.js</code>
+    and open <code>http://localhost:8080</code>.
+  </p>
+
+  <script src="jquery-3.5.1.min.js"></script>
+  <script src="main19.js?20251210"></script>
+  <script>
+    window.vlpv = 20251210;
+
+    var VIDEO_URL = "https://github.com/GabrikNet/nineviewers-source/raw/refs/heads/main/test/They%20call%20me%20sonic.mp4";
+
+    $(function () {
+      window.vlp = new VLPlayer({
+        id: $("#player"),
+        src: VIDEO_URL,
+        hdsrc: null,
+        preview: "",
+        videoUrl: window.location.href,
+        duration: 0,
+        autoplay: false,
+        mode: "html5",
+        skin: "skins/2007HD",
+        adjust: true,
+        btcolor: "red",
+        bgcolor: "white",
+        start: 0,
+        expand: false,
+        complete: function () { console.log("[vlPlayer] ready"); },
+        ended: function () { console.log("[vlPlayer] ended"); }
+      });
+    });
+  </script>
+</body>
+</html>
